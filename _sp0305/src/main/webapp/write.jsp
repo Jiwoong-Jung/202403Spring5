@@ -31,8 +31,8 @@
         </tr>
         <tr>
             <th>작성자</th>
-            <td><input type="text" name="writer" maxlength="20"
-                       value="${msg.writer}">
+            <td><input type="text" name="writer" maxlength="20" readonly="readonly"
+                       value="<%=memberDto.getName()%>">
             </td>
         </tr>
         <tr>
