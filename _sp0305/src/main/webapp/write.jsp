@@ -4,6 +4,9 @@
 <%
 	MemberDto memberDto = (MemberDto)session.getAttribute("member");
 	System.out.println(memberDto);
+	if (memberDto == null) {
+		response.sendRedirect("loginForm.jsp");
+	}
 
 %>
 <!DOCTYPE html>
