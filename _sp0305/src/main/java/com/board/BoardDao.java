@@ -125,10 +125,10 @@ public class BoardDao {
         ) {
             stmt.executeUpdate(String.format(
                     "insert into board " +
-                    "(writer, title, content, regtime, hits)" +
+                    "(writer, title, content, regtime, hits, memberno)" +
                     "values ('%s', '%s', '%s', '%s', 0)",
                     dto.getWriter(), dto.getTitle(), dto.getContent(),
-                    getCurrentTime()));
+                    getCurrentTime(), dto.getMemberno()));
 
         } catch(Exception e) {
             e.printStackTrace();
