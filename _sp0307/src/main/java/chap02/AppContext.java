@@ -3,14 +3,20 @@ package chap02;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.board.BoardDao;
 import com.board.BoardService;
 
 @Configuration
 public class AppContext {
 	
 	@Bean
+	public BoardDao boardDao() {
+		return new BoardDao();
+	}
+	
+	@Bean
 	public BoardService boardService() {
-		return new BoardService();
+		return new BoardService(boardDao());
 	}
 	
 

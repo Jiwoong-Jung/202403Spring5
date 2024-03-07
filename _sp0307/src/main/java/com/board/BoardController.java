@@ -30,31 +30,29 @@ public class BoardController extends HttpServlet {
 		Greeter g = ctx.getBean("greeter", Greeter.class);
 		String msg = g.greet("스프링");
 		System.out.println(msg);
+		
+		BoardService boardService 
+		            = ctx.getBean(BoardService.class);
 		ctx.close();
-    	
         String view = null;
-
         // URL에서 프로젝트 이름 뒷 부분의 문자열 얻어내기
         String uri = request.getRequestURI();
         String conPath = request.getContextPath();
         String com = uri.substring(conPath.length());
-
         // 주어진 URL에 따라 지정된 동작 수행
         if (com.equals("/list") || com.equals("/")) {
             String tmp = request.getParameter("page");
             int pageNo = (tmp != null && tmp.length() > 0)
                     ? Integer.parseInt(tmp) : 1;
-
             request.setAttribute("msgList",
-                    new BoardService().getMsgList(pageNo));
+            		boardService.getMsgList(pageNo));
             request.setAttribute("pgnList",
-                    new BoardService().getPagination(pageNo));
+            		boardService.getPagination(pageNo));
             view = "list.jsp";
-
         } else if (com.equals("/view")){
             int num = Integer.parseInt(request.getParameter("num"));
 
-            request.setAttribute("msg", new BoardService().getMsg(num));
+            request.setAttribute("msg", boardService.getMsg(num));
             view = "view.jsp";
 
         } else if (com.equals("/write")){
@@ -66,7 +64,7 @@ public class BoardController extends HttpServlet {
             String action = "insert";
 
             if (num > 0) {
-                dto = new BoardService().getMsgForWrite(num);
+                dto = boardService.getMsgForWrite(num);
                 action = "update?num=" + num;
             }
 
@@ -83,7 +81,7 @@ public class BoardController extends HttpServlet {
             int memberno = Integer.parseInt(num);
 
             try {
-                new BoardService().writeMsg(writer, title, content, memberno);
+            	boardService.writeMsg(writer, title, content, memberno);
                 view = "redirect:list";
 
             } catch(Exception e) {
@@ -99,7 +97,7 @@ public class BoardController extends HttpServlet {
             String content = request.getParameter("content");
 
             try {
-                new BoardService().updateMsg(writer, title, content, num);
+            	boardService.updateMsg(writer, title, content, num);
                 view = "redirect:list";
 
             } catch(Exception e) {
@@ -110,7 +108,7 @@ public class BoardController extends HttpServlet {
         } else if (com.equals("/delete")){
             int num = Integer.parseInt(request.getParameter("num"));
 
-            new BoardService().deleteMsg(num);
+            boardService.deleteMsg(num);
             view = "redirect:list";
         } else if (com.equals("/loginForm")) {
         	view = "loginForm.jsp";

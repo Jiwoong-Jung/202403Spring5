@@ -2,10 +2,15 @@ package com.board;
 
 import java.util.ArrayList;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class BoardService {
 
     private static final int listSize = 3;
     private static final int paginationSize = 3;
+    private BoardDao boardDao;
+    
 
     public ArrayList<BoardDto> getMsgList(int pageNo) {
        return new BoardDao().selectList((pageNo - 1) * listSize, listSize);
@@ -15,7 +20,7 @@ public class BoardService {
 
         ArrayList<Pagination> pgnList = new ArrayList<Pagination>();
 
-        int numRecords = new BoardDao().getNumRecords();
+        int numRecords = boardDao.getNumRecords();
         int numPages = (int)Math.ceil((double)numRecords / listSize);
 
         int firstLink = ((pageNo - 1) / paginationSize)
@@ -47,7 +52,7 @@ public class BoardService {
 
 
     public BoardDto getMsg(int num) {
-        BoardDto dto = new BoardDao().selectOne(num, true);
+        BoardDto dto = boardDao.selectOne(num, true);
 
         dto.setTitle(dto.getTitle().replace (" ",  "&nbsp;"));
         dto.setContent(dto.getContent().replace(" ",  "&nbsp;")
@@ -57,7 +62,7 @@ public class BoardService {
     }
 
     public BoardDto getMsgForWrite(int num) {
-        return new BoardDao().selectOne(num, false);
+        return boardDao.selectOne(num, false);
     }
 
     public void writeMsg(String writer, String title, String content, int memberno)
@@ -76,7 +81,7 @@ public class BoardService {
         dto.setContent(content);
         dto.setMemberno(memberno);
 
-        new BoardDao().insertOne(dto);
+        boardDao.insertOne(dto);
     }
 
     public void updateMsg(
@@ -96,10 +101,10 @@ public class BoardService {
         dto.setTitle  (title  );
         dto.setContent(content);
 
-        new BoardDao().updateOne(dto);
+        boardDao.updateOne(dto);
     }
 
     public void deleteMsg(int num) {
-        new BoardDao().deleteOne(num);
+    	boardDao.deleteOne(num);
     }
 }
