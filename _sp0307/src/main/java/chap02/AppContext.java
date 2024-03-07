@@ -3,8 +3,16 @@ package chap02;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.board.BoardService;
+
 @Configuration
 public class AppContext {
+	
+	@Bean
+	public BoardService boardService() {
+		return new BoardService();
+	}
+	
 
 	@Bean
 	public Greeter greeter() {
