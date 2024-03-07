@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import chap02.AppContext;
+import chap02.Greeter;
+
 @WebServlet("/")
 public class BoardController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -19,6 +24,14 @@ public class BoardController extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response)
                                  throws ServletException, IOException {
+    	
+    	AnnotationConfigApplicationContext ctx = 
+				new AnnotationConfigApplicationContext(AppContext.class);
+		Greeter g = ctx.getBean("greeter", Greeter.class);
+		String msg = g.greet("스프링");
+		System.out.println(msg);
+		ctx.close();
+    	
         String view = null;
 
         // URL에서 프로젝트 이름 뒷 부분의 문자열 얻어내기
