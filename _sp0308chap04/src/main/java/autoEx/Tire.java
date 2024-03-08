@@ -7,4 +7,10 @@ public class Tire {
 		System.out.print(postion+", ");
 		System.out.println("바퀴가 돈다.");
 	}
+
+	public void setPostion(String postion) {
+		this.postion = postion;
+	}
+	
+	
 }
