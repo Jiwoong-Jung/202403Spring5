@@ -57,7 +57,7 @@ public class MainForSpring4 {
 	
 	private static void processVersionCommand() {
 		VersionPrinter versionPrinter = 
-				ctx.getBean("versionPrinter", VersionPrinter.class);
+				ctx.getBean("oldVersionPrinter", VersionPrinter.class);
 		versionPrinter.print();
 	}
 	
