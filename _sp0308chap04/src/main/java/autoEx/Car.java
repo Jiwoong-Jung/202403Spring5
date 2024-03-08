@@ -3,9 +3,14 @@ package autoEx;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Car {
-	@Autowired
+
 	private Engine engine;
 	
+	@Autowired
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+
 	@Autowired
 	private Tire tire1;
 	
