@@ -31,22 +31,22 @@ public class AppCtxNoMemberPrinterBean {
 		return pwdSvc;
 	}
 	
-	private MemberPrinter printer = new MemberPrinter();
-//	@Bean
-//	public MemberPrinter memberPrinter() {
-//		return new MemberPrinter();
-//	}
+//	private MemberPrinter printer = new MemberPrinter();
+	@Bean
+	public MemberPrinter memberPrinter() {
+		return new MemberPrinter();
+	}
 	
 	@Bean
 	public MemberListPrinter listPrinter() {
-		return new MemberListPrinter(memberDao(), printer);
+		return new MemberListPrinter(memberDao(), memberPrinter());
 	}
 	
 	@Bean
 	public MemberInfoPrinter infoPrinter() {
 		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
 		infoPrinter.setMemberDao(memberDao());
-		infoPrinter.setPrinter(printer);
+		infoPrinter.setPrinter(memberPrinter());
 		return infoPrinter;
 	}
 	
