@@ -1,11 +1,23 @@
 package autoEx;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Car {
+	@Autowired
 	private Engine engine;
+	
+	@Autowired
 	private Tire tire1;
+	
+	@Autowired
 	private Tire tire2;
+	
+	@Autowired
 	private Tire tire3;
+	
+	@Autowired
 	private Tire tire4;
+
 	public void run() {
 		engine.engineRunning();
 		tire1.setPostion("왼쪽 앞");
