@@ -3,6 +3,10 @@ package optional;
 import java.util.Optional;
 
 class Bbb {
+	int x;
+	public Bbb(int x) {
+		this.x = x;
+	}
 	void print() {
 		System.out.println("Bbb");
 	}
