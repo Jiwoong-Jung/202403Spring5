@@ -26,6 +26,7 @@ public class OptionalMain {
 		
 		Optional<Bbb> bb1 = Optional.ofNullable(bb);
 		System.out.println(bb1);
+		aa.print(bb1.orElseGet(()->new Bbb()));
 
 	}
 
