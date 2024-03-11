@@ -10,5 +10,10 @@ public class AppCtx {
 	public MemberDao memberDao() {
 		return new MemberDao();
 	}
+	
+	@Bean
+	public MemberRegisterService memberRegisterService() {
+		return new MemberRegisterService();
+	}
 
 }

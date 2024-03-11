@@ -13,7 +13,9 @@ public class MainForSpring {
 		MemberRegisterService mrs 
 		        = ctx.getBean(MemberRegisterService.class);
 		mrs.regist();
-
+		
+		
+		ctx.close();
 	}
 
 }
