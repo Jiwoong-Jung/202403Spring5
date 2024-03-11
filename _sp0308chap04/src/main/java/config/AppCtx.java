@@ -50,7 +50,7 @@ public class AppCtx {
 	
 
 	@Bean
-	@Qualifier("summaryPrinter")
+//	@Qualifier("summaryPrinter")
 	public MemberSummaryPrinter memberPrinter2() {
 		return new MemberSummaryPrinter();
 	}
