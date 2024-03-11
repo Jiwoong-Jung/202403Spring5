@@ -15,5 +15,10 @@ public class AppCtx {
 	public MemberRegisterService memberRegisterService() {
 		return new MemberRegisterService();
 	}
+	
+	@Bean
+	ChangePasswordService changePasswordService() {
+		return new ChangePasswordService();
+	}
 
 }
