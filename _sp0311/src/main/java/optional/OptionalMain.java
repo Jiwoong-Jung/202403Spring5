@@ -8,7 +8,7 @@ class Bbb {
 		this.x = x;
 	}
 	void print() {
-		System.out.println("Bbb");
+		System.out.println("Bbb:"+x);
 	}
 }
 
@@ -21,7 +21,8 @@ public class OptionalMain {
 
 	public static void main(String[] args) {
 		Aaa aa = new Aaa();
-		Bbb bb = null;  // 가정: 값이 예상 안됨.
+//		Bbb bb = new Bbb(100);  // 가정: 값이 예상 안됨.
+		Bbb bb = null;
 //		if (bb == null) {
 //			System.out.println("bb가 null입니다.");
 //		} else {
@@ -30,7 +31,7 @@ public class OptionalMain {
 		
 		Optional<Bbb> bb1 = Optional.ofNullable(bb);
 		System.out.println(bb1);
-		aa.print(bb1.orElseGet(()->new Bbb()));
+		aa.print(bb1.orElseGet(()->new Bbb(0)));
 
 	}
 
