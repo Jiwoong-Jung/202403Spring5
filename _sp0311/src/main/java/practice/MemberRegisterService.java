@@ -6,6 +6,12 @@ public class MemberRegisterService {
 	@Autowired
 	private MemberDao memberDao;
 	
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+
+
+
 	public void regist() {
 		memberDao.process();
 //		if (memberDao == null) {
