@@ -17,8 +17,17 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script>
       $(function () {
-		alert("나온다");
+		$.ajax({
+			url: 'GetTodos',
+			method: 'GET',
+			success: function(data) {
+				console.log(data);
+			}
+		});
       });
     </script>
 </body>
 </html>
+
+
+
