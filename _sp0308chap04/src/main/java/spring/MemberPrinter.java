@@ -30,18 +30,18 @@ public class MemberPrinter {
 	}
 	
 //	@Autowired(required = false)
-	@Autowired
-	public void setDateFormatter(@Nullable DateTimeFormatter dateTimeFormatter) {
-		this.dateTimeFormatter = dateTimeFormatter;
-	}
-	
 //	@Autowired
-//	public void setDateFormatter(Optional<DateTimeFormatter> formatterOpt) {
-//		if (formatterOpt.isPresent()) {
-//			this.dateTimeFormatter = formatterOpt.get();
-//		} else {
-//			this.dateTimeFormatter = null;
-//		}
+//	public void setDateFormatter(DateTimeFormatter dateTimeFormatter) {
+//		this.dateTimeFormatter = dateTimeFormatter;
 //	}
+	
+	@Autowired
+	public void setDateFormatter(Optional<DateTimeFormatter> formatterOpt) {
+		if (formatterOpt.isPresent()) {
+			this.dateTimeFormatter = formatterOpt.get();
+		} else {
+			this.dateTimeFormatter = null;
+		}
+	}
 
 }
