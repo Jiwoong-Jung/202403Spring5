@@ -117,7 +117,7 @@ public class MainForSpring {
 			return;
 		}
 		MemberInfoPrinter infoPrinter = 
-				ctx.getBean(MemberInfoPrinter.class);
+				ctx.getBean("infoPrinter", MemberInfoPrinter.class);
 		infoPrinter.printMemberInfo(arg[1]);
 	}
 	
