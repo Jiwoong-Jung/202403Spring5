@@ -14,7 +14,7 @@ public class MemberPrinter {
 	}
 	
 	public void print(Member member) {
-		System.out.println("member 객체: " + member);
+		System.out.println("dateTimeFormatter 객체: " + dateTimeFormatter);
 		if (dateTimeFormatter == null) {
 			System.out.printf(
 					"회원 정보: 아이디=%d, 이메일=%s, 이름=%s, 등록일=%tF\n", 
