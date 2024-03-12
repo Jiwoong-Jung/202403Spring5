@@ -18,10 +18,10 @@ import spring.VersionPrinter;
 @ComponentScan(basePackages = {"spring"})
 public class AppCtx {
 
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
-	}
+//	@Bean
+//	public MemberDao memberDao() {
+//		return new MemberDao();
+//	}
 	
 	@Bean
 	public MemberRegisterService memberRegSvc() {
@@ -62,12 +62,12 @@ public class AppCtx {
 		return new MemberListPrinter();
 	}
 	
-	@Bean
-	public MemberInfoPrinter infoPrinter() {
-		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
-		infoPrinter.setPrinter(memberPrinter2());
-		return infoPrinter;
-	}
+//	@Bean
+//	public MemberInfoPrinter infoPrinter() {
+//		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+//		infoPrinter.setPrinter(memberPrinter2());
+//		return infoPrinter;
+//	}
 	
 	@Bean
 	public VersionPrinter versionPrinter() {
