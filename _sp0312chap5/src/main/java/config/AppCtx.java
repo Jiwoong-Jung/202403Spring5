@@ -12,12 +12,14 @@ import spring.MemberDao;
 import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberPrinter;
-import spring.MemberRegisterService;
 import spring.MemberSummaryPrinter;
 import spring.VersionPrinter;
+import spring2.MemberRegisterService;
 
 @Configuration
-@ComponentScan(basePackages = {"spring"})
+@ComponentScan(basePackages = {"spring", "spring2"},
+               excludeFilters = @Filter(type = FilterType.ANNOTATION, 
+                                 classes = {NoProduct.class, ManualBean.class}))
 //@ComponentScan(basePackages = {"spring"}, 
 //excludeFilters = @Filter(type=FilterType.REGEX, pattern = "spring\\..*Service" ))
 public class AppCtx {

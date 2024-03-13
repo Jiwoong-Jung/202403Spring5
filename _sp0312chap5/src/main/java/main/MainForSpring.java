@@ -13,10 +13,10 @@ import spring.DuplicateMemberException;
 import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberNotFoundException;
-import spring.MemberRegisterService;
 import spring.RegisterRequest;
 import spring.VersionPrinter;
 import spring.WrongIdPasswordException;
+import spring2.MemberRegisterService;
 
 public class MainForSpring {
 
