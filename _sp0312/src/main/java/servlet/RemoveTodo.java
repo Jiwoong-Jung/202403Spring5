@@ -29,6 +29,7 @@ public class RemoveTodo extends HttpServlet {
 		 // 할 일을 삭제하는 코드
         String todoToRemove = request.getParameter("text");
 
+        System.out.println(todoToRemove);
         // todoToRemove를 데이터베이스에서 삭제하는 코드를 여기에 작성합니다.
 
         response.setStatus(HttpServletResponse.SC_OK);

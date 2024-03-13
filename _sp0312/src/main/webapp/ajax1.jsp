@@ -30,14 +30,13 @@
 			const list = $('#todoList');
 
 			const item = $('<li></li>').text(data);
-			const removeButton = $('<button></button>').text('Remove');
+			const removeButton = $('<button></button>').text('삭제');
 			removeButton.click(function() {
 				$.ajax({
 					url : 'RemoveTodo', // 서버에서 할 일을 삭제하는 엔드포인트
 					method : 'POST',
-					data : {
-						text : data
-					},
+					//data : {text :data},
+					data: 'text='+data,
 					success : function() {
 						item.remove();
 					}
