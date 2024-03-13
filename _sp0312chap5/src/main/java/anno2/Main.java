@@ -4,11 +4,13 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import anno1.MyAnnotation;
+
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		Target ta = new Target();
-		ta.sub123();
+//		Target ta = new Target();
+//		ta.sub123();
 		
 		String className = "anno2.Target";
 		Class<?> cls = Class.forName(className);
@@ -21,6 +23,13 @@ public class Main {
             if (methods[i].isAnnotationPresent(MyAnno.class)) {
                 MyAnno myAnno = methods[i].getAnnotation(MyAnno.class);
                 System.out.println(myAnno.value());
+            }
+            if(methods[i].isAnnotationPresent(MyAnnotation.class)) {
+//            	System.out.println(method);
+                MyAnnotation annotation=
+                		methods[i].getDeclaredAnnotation(MyAnnotation.class);
+                String value=annotation.value123();
+                System.out.println(methods[i].getName() + ":" + value);
             }
         }
 		
