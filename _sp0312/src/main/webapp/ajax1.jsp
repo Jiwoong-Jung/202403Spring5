@@ -16,23 +16,25 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script>
-      $(function () {
-		$.ajax({
-			url: 'GetTodos',
-			method: 'GET',
-			success: function(data) {
-				console.log(data);
-			},
-			error : function(xhr, ajaxSettings, thrownError) 
-			   {
-			       alert("수정하는데 오류가 발생하였습니다.");
-			       console.log(xhr);
-			   }
-
-
+		$(function() {
+			$.ajax({
+				url : 'GetTodos',
+				method : 'GET',
+				success : function(data) {
+					 addItem(data);
+				}
+			});
 		});
-      });
-    </script>
+
+		function addItem(data) {
+			var list = $('#todoList');
+
+			var item = $('<li></li>').text(data);
+			//item.append(removeButton);
+
+			list.append(item);
+		}
+	</script>
 </body>
 </html>
 
