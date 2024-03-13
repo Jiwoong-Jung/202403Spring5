@@ -3,7 +3,9 @@ package spring;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("memberRegSvc")
 public class MemberRegisterService {
 
 	@Autowired

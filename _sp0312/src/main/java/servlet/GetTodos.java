@@ -37,10 +37,12 @@ public class GetTodos extends HttpServlet {
 		List<String> todos = Arrays.asList("First task", "Second task");
 
 		response.setContentType("application/json");
+//		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 
 		PrintWriter out = response.getWriter();
-		out.print(new Gson().toJson(todos)); // Gson 라이브러리를 사용하여 JSON으로 변환
+		out.println("[\"First task\", \"Second task\"]");
+//		out.print(new Gson().toJson(todos)); // Gson 라이브러리를 사용하여 JSON으로 변환
 		out.flush();
 	}
 

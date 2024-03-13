@@ -22,7 +22,14 @@
 			method: 'GET',
 			success: function(data) {
 				console.log(data);
-			}
+			},
+			error : function(xhr, ajaxSettings, thrownError) 
+			   {
+			       alert("수정하는데 오류가 발생하였습니다.");
+			       console.log(xhr);
+			   }
+
+
 		});
       });
     </script>
