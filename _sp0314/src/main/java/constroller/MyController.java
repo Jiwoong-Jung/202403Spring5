@@ -14,4 +14,14 @@ public class MyController {
 	public String abc() { // 메소드 이름 상관 없음
 		return "hello";  // view의 이름
 	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "inputForm";
+	}
+	
+	@GetMapping("/result")
+	public String result() {
+		return "result";
+	}
 }
