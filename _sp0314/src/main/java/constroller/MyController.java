@@ -8,9 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import dto.LoginRequest;
+import service.GetMemberNumService;
 
 @Controller
 public class MyController {
+	
+	private GetMemberNumService getMemberNumService;
+	
 	@GetMapping("/")
 	public String root() {
 		return "index";
@@ -31,6 +35,7 @@ public class MyController {
 		String str = "가나다";
 		System.out.println(loginRequest.getId());
 		System.out.println(loginRequest.getEmail());
+		System.out.println(getMemberNumService.getNumRecords());
 		model.addAttribute("str", str);
 		return "result";
 	}
