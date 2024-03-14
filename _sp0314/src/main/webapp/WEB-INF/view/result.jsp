@@ -8,6 +8,10 @@
 </head>
 <body>
 <h1>결과 화면</h1>
-<a href="move">홈으로</a>
+${loginRequest.id} 님 환영합니다.<br>
+${loginRequest.email}<br>
+${str}
+
+<a href="${pageContext.request.contextPath}/">홈으로</a>
 </body>
 </html>

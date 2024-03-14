@@ -3,6 +3,7 @@ package constroller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,13 +27,15 @@ public class MyController {
 	}
 
 	@GetMapping("/result")
-	public String result(LoginRequest loginRequest) {
+	public String result(LoginRequest loginRequest, Model model) {
+		String str = "가나다";
 		System.out.println(loginRequest.getId());
 		System.out.println(loginRequest.getEmail());
+		model.addAttribute("str", str);
 		return "result";
 	}
 
-//	public String result(@RequestParam String id, @RequestParam String email) {
+//	public String result(@RequestParam String id, String email) {
 //		System.out.println(id);
 //		System.out.println(email);
 //		return "result";
