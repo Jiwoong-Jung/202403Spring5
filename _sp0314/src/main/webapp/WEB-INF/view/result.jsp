@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>결과 화면</h1>
+<a href="move">홈으로</a>
 </body>
 </html>

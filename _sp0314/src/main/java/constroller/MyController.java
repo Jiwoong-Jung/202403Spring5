@@ -42,4 +42,9 @@ public class MyController {
 //		System.out.println(id);
 //		return "result";
 //	}
+	
+	@GetMapping("/move")
+	public String move() {
+		return "redirect:/";
+	}
 }
