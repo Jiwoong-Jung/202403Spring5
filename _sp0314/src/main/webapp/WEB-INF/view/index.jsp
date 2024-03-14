@@ -9,5 +9,6 @@
 <body>
 <h1>처음 화면</h1>
 <a href="hello">이동</a>
+<a href="login">로그인 화면</a>
 </body>
 </html>
