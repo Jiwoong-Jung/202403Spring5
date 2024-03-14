@@ -10,8 +10,8 @@ public class MyController {
 		return "index";
 	}
 	
-	@GetMapping("/hello")
-	public String hello() {
-		return "hello";
+	@GetMapping("/hello") // 요청
+	public String abc() { // 메소드 이름 상관 없음
+		return "hello";  // view의 이름
 	}
 }
