@@ -1,11 +1,17 @@
 package dao;
 
-import java.sql.*;
-import java.time.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Repository;
 
 import dto.MemberDto;
 
+@Repository
 public class MemberDao {
 
     // DB에 접속하여 Connection 객체를 반환
