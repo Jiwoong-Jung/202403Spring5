@@ -1,5 +1,7 @@
 package constroller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -21,7 +23,9 @@ public class MyController {
 	}
 	
 	@GetMapping("/result")
-	public String result() {
+	public String result(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		System.out.println(id);
 		return "result";
 	}
 }
