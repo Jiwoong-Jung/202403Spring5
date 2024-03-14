@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>처음 화면</h1>
-<a href="hello">이동</a>
+<h1>안녕하세요?</h1>
 </body>
 </html>

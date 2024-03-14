@@ -9,4 +9,9 @@ public class MyController {
 	public String root() {
 		return "index";
 	}
+	
+	@GetMapping("/hello")
+	public String hello() {
+		return "hello";
+	}
 }
