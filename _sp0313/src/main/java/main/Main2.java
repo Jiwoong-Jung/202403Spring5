@@ -1,16 +1,15 @@
 package main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 
 import config.AppCtx;
-import spring.Client;
+import spring.Client2;
 
-public class Main {
+public class Main2 {
 	public static void main(String[] ar) {
-		AbstractApplicationContext ctx 
+		AnnotationConfigApplicationContext ctx 
 		      = new AnnotationConfigApplicationContext(AppCtx.class);
-		Client client = ctx.getBean(Client.class);
+		Client2 client = ctx.getBean(Client2.class);
 		client.send();
 		ctx.close();
 		

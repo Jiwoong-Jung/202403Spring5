@@ -1,8 +1,5 @@
 package spring;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-
 public class Client2 {
 
 	private String host;
