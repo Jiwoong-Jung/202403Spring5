@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import dto.LoginRequest;
+
 @Controller
 public class MyController {
 	@GetMapping("/")
@@ -24,9 +26,9 @@ public class MyController {
 	}
 
 	@GetMapping("/result")
-	public String result() {
-//		System.out.println(id);
-//		System.out.println(email);
+	public String result(LoginRequest loginRequest) {
+		System.out.println(loginRequest.getId());
+		System.out.println(loginRequest.getEmail());
 		return "result";
 	}
 
