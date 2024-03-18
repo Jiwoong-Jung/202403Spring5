@@ -15,7 +15,9 @@ public class Main {
 
 		MemberDao dbQuery = ctx.getBean(MemberDao.class);
 		int count = dbQuery.count();
-		LOGGER.info("인원 {}명",count);
+		LOGGER.info("인원: {}명",count);
+		String name = dbQuery.memberName(1);
+		LOGGER.info("고객이름: {}", name);
 
 	}
 

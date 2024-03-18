@@ -21,8 +21,8 @@ public class MemberDao {
     public String memberName(int memberno) {
     	return jdbcTemplate		
     	 .queryForObject(
-    			 "select name from member where memberno = ? ",
-    		     String.class);
+    			 "select name from member where memberno = ?",
+    			 String.class, memberno);
     }
 
 }
