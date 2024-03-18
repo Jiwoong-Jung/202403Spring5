@@ -29,7 +29,7 @@
 			
 			// 'Add' 버튼 클릭 시 새로운 할 일 추가
 		    $('#addButton').click(function() {
-		        var value = $('#todoInput').val();
+		        const value = $('#todoInput').val();
 		        if (value) {
 		            $.ajax({
 		                url: 'AddTodo', // 서버에 새로운 할 일을 추가하는 엔드포인트
