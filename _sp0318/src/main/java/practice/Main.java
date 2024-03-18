@@ -1,5 +1,7 @@
 package practice;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -25,6 +27,17 @@ public class Main {
 		Member dto1 = new Member(2, "Park", "park@korea.com", "박하나");
 		dbQuery.update(dto1);
 		dbQuery.delete(5);
+		
+		List<Member> list = dbQuery.selectAll();
+		for (Member member : list) {
+			LOGGER.info("{},{},{},{}", member.getMemberno(),
+					member.getId(), member.getPw()
+					, member.getName());
+		}
 	}
 
 }
+
+
+
+
