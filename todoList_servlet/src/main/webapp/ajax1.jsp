@@ -26,6 +26,22 @@
 					});
 				}
 			});
+			
+			// 'Add' 버튼 클릭 시 새로운 할 일 추가
+		    $('#addButton').click(function() {
+		        var value = $('#todoInput').val();
+		        if (value) {
+		            $.ajax({
+		                url: 'AddTodo', // 서버에 새로운 할 일을 추가하는 엔드포인트
+		                method: 'POST',
+		                data: { text: value },
+		                success: function(data) {
+		                    addItem(data);
+		                    $('#todoInput').val('');
+		                }
+		            });
+		        }
+		    });
 		});
 
 		function addItem(text1) {
@@ -49,6 +65,8 @@
 
 			list.append(item);
 		}
+		
+		
 	</script>
 </body>
 </html>
