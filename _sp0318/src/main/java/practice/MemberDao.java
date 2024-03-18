@@ -24,5 +24,12 @@ public class MemberDao {
     			 "select name from member where memberno = ?",
     			 String.class, memberno);
     }
+    
+    public void insert(Member member) {
+    	jdbcTemplate.update(
+    	   "insert into member(id, pw, name) values(?,?,?)",
+    	   member.getId(), member.getPw(), member.getName());
+    }
 
 }
+
