@@ -30,6 +30,17 @@ public class MemberDao {
     	   "insert into member(id, pw, name) values(?,?,?)",
     	   member.getId(), member.getPw(), member.getName());
     }
+    
+    public void update(Member member) {
+    	jdbcTemplate.update(
+    	   "update member set pw = ?, name = ? where memberno = ?",
+    	   member.getPw(), member.getName(), member.getMemberno());
+    }
+    
+    public void delete(int memberno) {
+    	jdbcTemplate.update("delete from member where memberno = ?",
+    			            memberno);
+    }
 
 }
 
