@@ -17,5 +17,12 @@ public class MemberDao {
         				                        Integer.class);
         return count;
      }
+    
+    public String memberName(int memberno) {
+    	return jdbcTemplate		
+    	 .queryForObject(
+    			 "select name from member where memberno = ? ",
+    		     String.class);
+    }
 
 }
