@@ -2,8 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
 /**
- * Servlet implementation class GetTodos
+ * Servlet implementation class AddTodo
  */
-@WebServlet("/GetTodos")
-public class GetTodos extends HttpServlet {
+@WebServlet("/AddTodo")
+public class AddTodo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetTodos() {
+    public AddTodo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +28,17 @@ public class GetTodos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 할 일 목록을 가져오는 코드
-		// 이 예시에서는 단순히 두 개의 할 일을 반환합니다.
-		List<String> todos = Arrays.asList("설거지", "청소", "공부");
+		/// 새로운 할 일을 추가하는 코드
+        String newTodo = request.getParameter("text");
+        System.out.println(newTodo);
+        // newTodo를 데이터베이스에 저장하는 코드를 여기에 작성합니다.
 
-		response.setContentType("application/json");
-//		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
 
-		PrintWriter out = response.getWriter();
-//		out.print(todos);
-//		out.println("[\"First task\", \"Second task\"]");
-		out.print(new Gson().toJson(todos)); // Gson 라이브러리를 사용하여 JSON으로 변환
-		out.flush();
+        PrintWriter out = response.getWriter();
+        out.print(newTodo);
+        out.flush();
 	}
 
 	/**

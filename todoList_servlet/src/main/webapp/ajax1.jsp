@@ -28,16 +28,16 @@
 			});
 		});
 
-		function addItem(text) {
+		function addItem(text1) {
 			const list = $('#todoList');
 
-			const item = $('<li></li>').text(text);
+			const item = $('<li></li>').text(text1);
 			const removeButton = $('<button></button>').text('삭제');
 			removeButton.click(function() {
 				$.ajax({
 					url : 'RemoveTodo', // 서버에서 할 일을 삭제하는 엔드포인트
 					method : 'POST',
-					data : {text : text},
+					data : {text : text1},
 					//data: 'text='+data,
 					success : function() {
 						item.remove();
