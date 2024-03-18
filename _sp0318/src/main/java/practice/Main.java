@@ -28,7 +28,7 @@ public class Main {
 		dbQuery.update(dto1);
 		dbQuery.delete(5);
 		
-		List<Member> list = dbQuery.selectAll();
+		List<Member> list = dbQuery.selectAll2();
 		for (Member member : list) {
 			LOGGER.info("{},{},{},{}", member.getMemberno(),
 					member.getId(), member.getPw()

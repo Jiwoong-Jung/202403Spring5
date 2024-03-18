@@ -65,7 +65,18 @@ public class MemberDao {
     	});
     	return results;
     }
-    
-
+    public List<Member> selectAll2() {
+    	List<Member> results = jdbcTemplate.query("select * from member",
+    			(rs, n)->{
+			          Member dto = new Member(
+					         rs.getInt("memberno"),
+					         rs.getString("id"),
+					         rs.getString("pw"),
+					         rs.getString("name")
+					  );
+			          return dto;
+		        });
+    	return results;
+    }
 }
 
