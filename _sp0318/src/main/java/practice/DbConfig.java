@@ -13,6 +13,8 @@ public class DbConfig {
 		ds.setUrl("jdbc:mysql://localhost/project2?characterEncoding=utf8");
 		ds.setUsername("root");
 		ds.setPassword("mysql");
+		ds.setInitialSize(2);
+		ds.setMaxActive(10);
 		return ds;
 		
 	}
