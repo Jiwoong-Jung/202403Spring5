@@ -1,7 +1,5 @@
 package practice;
 
-import org.springframework.stereotype.Service;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

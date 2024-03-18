@@ -16,7 +16,6 @@ public class DbConfig {
 		ds.setInitialSize(2);
 		ds.setMaxActive(10);
 		return ds;
-		
 	}
 
 }
