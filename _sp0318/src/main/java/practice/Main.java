@@ -19,6 +19,9 @@ public class Main {
 		String name = dbQuery.memberName(2);
 		LOGGER.info("고객이름: {}", name);
 
+		Member dto = 
+				new Member("Kim", "kim@korea.com", "김하나");
+		dbQuery.insert(dto);
 	}
 
 }
