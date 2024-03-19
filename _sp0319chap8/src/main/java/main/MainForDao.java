@@ -21,7 +21,7 @@ public class MainForDao {
 				new AnnotationConfigApplicationContext(AppCtx.class);
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
-		Member member = dao.selectByEmail("madvirus@madvirus.net123");
+		Member member = dao.selectByEmail3("madvirus@madvirus.net");
 		if (member != null) {
 //			LOGGER.info("{}", member);
 			LOGGER.info("아이디:{}, 이메일:{}, 패스워드:{}, 이름:{}, 등록일:{}",
