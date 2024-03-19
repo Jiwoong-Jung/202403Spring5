@@ -21,14 +21,19 @@ public class MainForDao {
 				new AnnotationConfigApplicationContext(AppCtx.class);
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
-		Member member = dao.selectByEmail("madvirus@madvirus.net");
-		LOGGER.info("{}", member);
-//		LOGGER.info("아이디:{}, 이메일:{}, 패스워드:{}, 이름:{}, 등록일:{}",
-//				                      member.getId(), 
-//				                      member.getEmail(),
-//				                      member.getPassword(),
-//				                      member.getName(),
-//				                      member.getRegisterDateTime());
+		Member member = dao.selectByEmail("madvirus@madvirus.net123");
+		if (member != null) {
+//			LOGGER.info("{}", member);
+			LOGGER.info("아이디:{}, 이메일:{}, 패스워드:{}, 이름:{}, 등록일:{}",
+					                      member.getId(), 
+					                      member.getEmail(),
+					                      member.getPassword(),
+					                      member.getName(),
+					                      member.getRegisterDateTime());
+		} else {
+			LOGGER.info("이메일로 검색안됨");
+		}
+
 
 		ctx.close();
 
