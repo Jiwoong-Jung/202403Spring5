@@ -22,12 +22,13 @@ public class MainForDao {
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
 		Member member = dao.selectByEmail("madvirus@madvirus.net");
-		LOGGER.info("아이디:{}, 이메일:{}, 패스워드:{}, 이름:{}, 등록일:{}",
-				                      member.getId(), 
-				                      member.getEmail(),
-				                      member.getPassword(),
-				                      member.getName(),
-				                      member.getRegisterDateTime());
+		LOGGER.info("{}", member);
+//		LOGGER.info("아이디:{}, 이메일:{}, 패스워드:{}, 이름:{}, 등록일:{}",
+//				                      member.getId(), 
+//				                      member.getEmail(),
+//				                      member.getPassword(),
+//				                      member.getName(),
+//				                      member.getRegisterDateTime());
 
 		ctx.close();
 

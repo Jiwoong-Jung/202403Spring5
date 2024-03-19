@@ -2,6 +2,9 @@ package spring;
 
 import java.time.LocalDateTime;
 
+import lombok.ToString;
+
+@ToString
 public class Member {
 
 	private Long id;
