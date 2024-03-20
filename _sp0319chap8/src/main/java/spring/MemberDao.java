@@ -76,7 +76,7 @@ public class MemberDao {
 		return results.isEmpty() ? null : results.get(0);
 	}
 
-	public void insert(Member member) {
+	public void insert2(Member member) {
 		jdbcTemplate.update(
 				"insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, now())",
 				member.getEmail(), member.getPassword() ,member.getName());
