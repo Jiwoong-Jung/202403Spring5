@@ -1,5 +1,7 @@
 package main;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -21,6 +23,13 @@ public class MainForDao {
 				new AnnotationConfigApplicationContext(AppCtx.class);
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
+		
+		List<Member> list = dao.selectAll();
+		LOGGER.info("---Member 테이블 내용---");
+		for (Member member : list) {
+			LOGGER.info(member.toString());
+		}
+		LOGGER.info("---Member 테이블 내용 끝---");
 		Member member = dao.selectByEmail3("madvirus@madvirus.net");
 		if (member != null) {
 //			LOGGER.info("{}", member);
