@@ -23,6 +23,9 @@ public class MainForDao {
 				new AnnotationConfigApplicationContext(AppCtx.class);
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
+				
+		int cnt = dao.count();
+		LOGGER.info("총 인원 수: {}", cnt);
 		
 		List<Member> list = dao.selectAll();
 		LOGGER.info("---Member 테이블 내용---");

@@ -77,11 +77,15 @@ public class MemberDao {
 	}
 
 	public void insert(Member member) {
-
+		jdbcTemplate.update(
+				"insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, now())",
+				member.getEmail(), member.getPassword() ,member.getName());
 	}
 
 	public void update(Member member) {
-
+		jdbcTemplate.update(
+				"update MEMBER set NAME = ?, PASSWORD = ? where EMAIL = ?",
+				member.getName(), member.getPassword(), member.getEmail());
 	}
 
 	public List<Member> selectAll() {
@@ -102,5 +106,9 @@ public class MemberDao {
 
 		return results;
 
+	}
+	public int count() {
+		return jdbcTemplate.queryForObject
+				("select count(*) from member", Integer.class);
 	}
 }
