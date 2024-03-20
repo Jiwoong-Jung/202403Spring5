@@ -23,7 +23,15 @@ public class MainForDao {
 				new AnnotationConfigApplicationContext(AppCtx.class);
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
-				
+		
+//		Member member2 = new Member("aaa@korea.com", "1234", "홍길동", null);
+//		dao.insert2(member2);
+//		LOGGER.info("---한 행이 입력되었습니다.");
+		
+		Member member3 = new Member("aaa@korea.com", "5678", "김하나", null);
+		dao.update(member3);
+		LOGGER.info("---한 행이 수정되었습니다.");
+		
 		int cnt = dao.count();
 		LOGGER.info("총 인원 수: {}", cnt);
 		
