@@ -12,6 +12,8 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -80,19 +82,23 @@ public class MemberDao {
 	}
 	
 	public void insert(Member member) {
+		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt 
 				   = con.prepareStatement
-				   ("insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, now())");
+				   ("insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) "
+				   		+ "values (?, ?, ?, now())", new String[] {"ID"});
 				pstmt.setString(1, member.getEmail());
 				pstmt.setString(2, member.getPassword());
 				pstmt.setString(3, member.getName());
 				return pstmt;
 			}
-		});
+		}, keyHolder);
+		Number keyValue = keyHolder.getKey();
+		member.setId(keyValue.longValue());
 	}
 
 	public void insert2(Member member) {

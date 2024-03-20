@@ -24,9 +24,9 @@ public class MainForDao {
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
 		
-//		Member member2 = new Member("aaa@korea.com", "1234", "홍길동", null);
-//		dao.insert2(member2);
-//		LOGGER.info("---한 행이 입력되었습니다.");
+		Member member2 = new Member("kim2@korea.com", "1234", "김길동2", null);
+		dao.insert(member2);
+		LOGGER.info("---한 행이 입력되었습니다.");
 		
 		Member member3 = new Member("aaa@korea.com", "5678", "김하나", null);
 		dao.update(member3);
@@ -41,7 +41,7 @@ public class MainForDao {
 			LOGGER.info(member.toString());
 		}
 		LOGGER.info("---Member 테이블 내용 끝---");
-		Member member = dao.selectByEmail3("madvirus@madvirus.net");
+		Member member = dao.selectByEmail3("kim2@korea.com");
 		if (member != null) {
 //			LOGGER.info("{}", member);
 			LOGGER.info("아이디:{}, 이메일:{}, 패스워드:{}, 이름:{}, 등록일:{}",
