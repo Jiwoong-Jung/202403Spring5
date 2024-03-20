@@ -1,5 +1,7 @@
 package spring;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -8,6 +10,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -74,6 +77,22 @@ public class MemberDao {
 				}, email);
 
 		return results.isEmpty() ? null : results.get(0);
+	}
+	
+	public void insert(Member member) {
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement pstmt 
+				   = con.prepareStatement
+				   ("insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, now())");
+				pstmt.setString(1, member.getEmail());
+				pstmt.setString(2, member.getPassword());
+				pstmt.setString(3, member.getName());
+				return pstmt;
+			}
+		});
 	}
 
 	public void insert2(Member member) {
