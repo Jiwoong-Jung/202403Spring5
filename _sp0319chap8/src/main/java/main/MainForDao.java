@@ -24,9 +24,10 @@ public class MainForDao {
 
 		MemberDao dao = ctx.getBean(MemberDao.class);
 		
-		Member member2 = new Member("kim2@korea.com", "1234", "김길동2", null);
+		Member member2 = new Member("kim3@korea.com", "1234", "김길동3", null);
 		dao.insert(member2);
 		LOGGER.info("---한 행이 입력되었습니다.");
+		LOGGER.info("새로 입력된 회원의 ID: {}", member2.getId());
 		
 		Member member3 = new Member("aaa@korea.com", "5678", "김하나", null);
 		dao.update(member3);
