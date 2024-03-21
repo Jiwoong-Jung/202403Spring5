@@ -22,13 +22,13 @@
 	<table>
 	<form method="post" action="update">
 		<tr><td><label for="name">이름</label></td>
-			<td><input type="text" name="name" /></td></tr>
+			<td><input type="text" name="name" value="${member.name}"/></td></tr>
 		<tr><td><label for="password">패스워드</label></td>
-			<td><input type="text" name="password" /></td></tr>
+			<td><input type="text" name="password"  value="${member.password}"/></td></tr>
 		<tr><td><label for="email">메일</label></td>
-			<td><input type="text" name="email"  /></td></tr>
+			<td><input type="text" name="email"  value="${member.email}" /></td></tr>
 		<tr><td><label for="registerDateTime">메모</label></td>
-			<td><textarea name="registerDateTime" cols="20" rows="5" ></textarea></td></tr>
+			<td><textarea name="registerDateTime" cols="20" rows="5" >${member.registerDateTime}</textarea></td></tr>
 		<tr><td></td><td><input type="submit" /></td></tr>
 	</form>
 	</table>
@@ -37,7 +37,7 @@
 	<tr><th>ID</th><th>이름</th></tr>
 	<c:forEach var="member" items="${list}">
 	<tr>
-		<td>${member.id}</td>
+		<td><a href="update?id=${member.id}">${member.id}</a></td>
 		<td>${member.name}</td>
 	</tr>
 	</c:forEach>

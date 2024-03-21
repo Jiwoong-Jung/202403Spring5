@@ -29,5 +29,9 @@ public class MemberService {
 	public List<Member> listAll() {
 		return memberDao.selectAll();
 	}
+	
+	public Member findById(int id) {
+		return memberDao.selectById(id);
+	}
 
 }

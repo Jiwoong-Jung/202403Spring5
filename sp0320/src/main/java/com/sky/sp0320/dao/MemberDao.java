@@ -139,4 +139,23 @@ public class MemberDao {
 	public void delete(int id) {
 		jdbcTemplate.update("delete from member where id = ?", id);
 	}
+	
+	public Member selectById(int id) {
+		List<Member> results = jdbcTemplate.query(
+				"select * from MEMBER where id = ?",
+				new RowMapper<Member>() {
+					@Override
+					public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+						Member member = new Member(
+								rs.getString("EMAIL"),
+								rs.getString("PASSWORD"),
+								rs.getString("NAME"),
+								rs.getTimestamp("REGDATE").toLocalDateTime());
+						member.setId(rs.getLong("ID"));
+						return member;
+					}
+				}, id);
+
+		return results.isEmpty() ? null : results.get(0);
+	}
 }

@@ -39,6 +39,7 @@ public class MyController {
 	@GetMapping("/update")
 	public String updateForm(int id, Model model) {
 		System.out.println("id="+id);
+		model.addAttribute("member", memberService.findById(id));
 		model.addAttribute("list", memberService.listAll());
 		return "updateForm";
 	}
