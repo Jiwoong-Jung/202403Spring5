@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE HTML>
 <head>
 	<title>top page</title>
@@ -16,25 +20,27 @@
 	<h1>Hello page</h1>
 	<p></p>
 	<table>
-	<form method="post" action="/">
+	<form method="post" action="update">
 		<tr><td><label for="name">이름</label></td>
 			<td><input type="text" name="name" /></td></tr>
-		<tr><td><label for="age">연령</label></td>
-			<td><input type="text" name="age" /></td></tr>
-		<tr><td><label for="mail">메일</label></td>
-			<td><input type="text" name="mail"  /></td></tr>
-		<tr><td><label for="memo">메모</label></td>
-			<td><textarea name="memo" cols="20" rows="5" ></textarea></td></tr>
+		<tr><td><label for="password">패스워드</label></td>
+			<td><input type="text" name="password" /></td></tr>
+		<tr><td><label for="email">메일</label></td>
+			<td><input type="text" name="email"  /></td></tr>
+		<tr><td><label for="registerDateTime">메모</label></td>
+			<td><textarea name="registerDateTime" cols="20" rows="5" ></textarea></td></tr>
 		<tr><td></td><td><input type="submit" /></td></tr>
 	</form>
 	</table>
 	<hr/>
 	<table>
 	<tr><th>ID</th><th>이름</th></tr>
+	<c:forEach var="member" items="${list}">
 	<tr>
-		<td></td>
-		<td></td>
+		<td>${member.id}</td>
+		<td>${member.name}</td>
 	</tr>
+	</c:forEach>
 	</table>
 </body>
 </html>

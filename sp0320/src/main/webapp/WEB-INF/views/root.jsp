@@ -20,7 +20,7 @@
 	<h1>Hello page</h1>
 	<p></p>
 	<table>
-	<form method="post" action="/">
+	<form method="post" action="input">
 		<tr><td><label for="name">이름</label></td>
 			<td><input type="text" name="name" /></td></tr>
 		<tr><td><label for="password">패스워드</label></td>
@@ -37,7 +37,7 @@
 	<tr><th>ID</th><th>이름</th></tr>
 	<c:forEach var="member" items="${list}">
 	<tr>
-		<td>${member.id}</td>
+		<td><a href="update?id=${member.id}">${member.id}</a></td>
 		<td>${member.name}</td>
 	</tr>
 	</c:forEach>
