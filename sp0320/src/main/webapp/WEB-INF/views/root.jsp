@@ -37,7 +37,7 @@
 	<tr><th>ID</th><th>이름</th></tr>
 	<c:forEach var="member" items="${list}">
 	<tr>
-		<td><a href="update?id=${member.id}">${member.id}</a></td>
+		<td><a href="updateForm?id=${member.id}">${member.id}</a></td>
 		<td>${member.name}</td>
 	</tr>
 	</c:forEach>

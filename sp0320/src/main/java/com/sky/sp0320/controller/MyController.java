@@ -36,12 +36,20 @@ public class MyController {
 		return "root";
 	}
 	
-	@GetMapping("/update")
+	@GetMapping("/updateForm")
 	public String updateForm(int id, Model model) {
 		System.out.println("id="+id);
 		model.addAttribute("member", memberService.findById(id));
 		model.addAttribute("list", memberService.listAll());
 		return "updateForm";
+	}
+	
+	@PostMapping("/update")
+	public String update(Model model, Member member) {
+		System.out.println(member.getId());
+		memberService.update(member);
+		model.addAttribute("list", memberService.listAll());
+		return "root";
 	}
 	
 
