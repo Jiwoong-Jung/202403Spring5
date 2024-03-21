@@ -135,4 +135,8 @@ public class MemberDao {
 		return jdbcTemplate.queryForObject
 				("select count(*) from member", Integer.class);
 	}
+	
+	public void delete(int id) {
+		jdbcTemplate.update("delete from member where id = ?", id);
+	}
 }
