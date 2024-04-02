@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sky.sp0320.dao.MemberDao;
 import com.sky.sp0320.dto.Member;
@@ -52,6 +53,29 @@ public class MyController {
 		return "root";
 	}
 	
+	
+	@GetMapping("/todo")
+	public String todo() {
+		return "todoList";
+	}
+	
+	@PostMapping("/list")
+	public String list(Model model) {
+		model.addAttribute("list", memberService.listAll());
+		return "list";
+	}
+	
+	@GetMapping("/data")
+	@ResponseBody
+	public Member data(Model model, int id) {
+		return memberService.findById(id);
+	}
+	
+	@GetMapping("/root2") 
+	public String root2(Model model) {
+		model.addAttribute("list", memberService.listAll());
+		return "root2";
+	}
 
 }
 
